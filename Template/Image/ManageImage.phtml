@@ -1,0 +1,48 @@
+<?php
+use \Framework\Tools\Helper\RoutesHelper;
+?>
+
+<section class="l-content content">
+	<section class="manager">
+		<h1>Gérer les images</h1>
+		<section class="manager__actions">
+            <ul>
+                <li>
+                    <a class="button" href="<?= RoutesHelper::Path("AddImage", [ "source" => "URL" ]); ?>"><i class="fas fa-plus"></i> Url</a>
+                </li><!--
+                --><li>
+                    <a class="button" href="<?= RoutesHelper::Path("AddImage", [ "source" => "LOCAL" ]); ?>"><i class="fas fa-plus"></i> Local</a>
+                </li>
+            </ul>
+		</section>
+		<table>
+			<tr>
+    		   	<th scope="col">#</th>
+    		   	<th scope="col">Chemin complet</th>
+                <th scope="col">Aperçu</th>
+    		   	<th scope="col">Visible ?</th>
+    		   	<th scope="col">Actions</th>
+    		</tr>
+<?php 
+if (isset($params) && array_key_exists("images", $params))
+{
+    $images = $params["images"];
+    foreach ($images as $image) 
+    {
+?>
+            <tr id="<?= "image-".$image->GetId(); ?>">
+                <td><?= $image->GetId(); ?></td>
+				<td><?= $image->GetFullPath(); ?></td>
+                <td><img src="<?= $image->GetRelativePath(); ?>"></td>
+				<td><?php if($image->GetIsVisible()) { echo "<i class=\"far fa-eye\"></i>"; } else { echo "<i class=\"far fa-eye-slash\"></i>"; } ?></td>
+                <td>
+                    <a class="button" href="<?= RoutesHelper::Path("UpdateImage", [ "id" => $image->GetId() ]); ?>"><i class="fas fa-edit"></i> Éditer</a>
+                </td>
+            </tr>
+<?php
+    }
+}
+?>
+		</table>
+	</section>
+</section>

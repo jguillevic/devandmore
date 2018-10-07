@@ -1,0 +1,88 @@
+<?php
+$post = $params["post"];
+$categories = $params["categories"];
+$images = $params["images"];
+?>
+
+<form class="form" action="<?= $_SERVER['REQUEST_URI'] ?>" method="POST">
+	<h1>Éditer un article</h1>
+
+<?php
+if (isset($params) && array_key_exists("errors", $params))
+{
+?>
+	<section class="form__errors">
+		<ul>
+<?php
+	foreach ($params["errors"] as $error) 
+	{
+?>
+			<li><?php echo $error->GetMessage(); ?></li>
+<?php
+	}
+?>
+		</ul>
+	</section>
+<?php
+}
+?>
+
+	<input type="hidden" id="post-id" name="post-id" value="<?= $post->GetId(); ?>">
+	<input type="hidden" id="post-creation-date" name="post-creation-date" value="<?= $post->GetCreationDate(); ?>">
+	<section>
+		<label for="post-title">Titre</label>
+		<input type="text" id="post-title" name="post-title" value="<?= $post->GetTitle(); ?>" maxlength="100">
+	</section>
+	<section>
+		<label for="post-image-id">Image de couverture</label>
+		<select id="post-image-id" name="post-image-id">
+<?php
+$index = 0;
+foreach ($images as $image) 
+{
+?>
+			<option value="<?= $image->GetId(); ?>" <?php if (($post->GetImage()->GetId() === 0 && $index === 0) || ($post->GetImage()->GetId() === $image->GetId())) { echo "selected"; } ?>><?= $image->GetName(); ?></option>
+<?php
+	$index++;
+}
+?>
+		</select>
+	</section>
+	<section>
+		<label for="post-description">Description</label>
+		<textarea id="post-description" name="post-description" rows=2 maxlength="255"><?= $post->GetDescription(); ?></textarea>
+	</section>
+	<section>
+		<label for="post-category-id">Catégorie</label>
+		<select id="post-category-id" name="post-category-id">
+<?php
+$index = 0;
+foreach ($categories as $category) 
+{
+?>
+			<option value="<?= $category->GetId(); ?>" <?php if (($post->GetCategory()->GetId() === 0 && $index === 0) || ($post->GetCategory()->GetId() === $category->GetId())) { echo "selected"; } ?>><?= $category->GetName(); ?></option>
+<?php
+	$index++;
+}
+?>
+  		</select>
+	</section>
+	<section>
+		<label for="post-content">Contenu</label>
+		<textarea id="post-content" name="post-content" rows=30><?= $post->GetContent(); ?></textarea>
+	</section>
+	<section>
+		<label for="post-is-published">Publié ?</label>
+		<input type="checkbox" id="post-is-published" name="post-is-published" <?php if ($post->GetIsPublished()) { echo "checked"; } ?>>
+	</section>
+	<section class="form__buttons">
+		<ul>
+			<li>
+				<button class="button" type="submit" id="post-save">Enregistrer</button>
+			</li><!--
+			--><li>
+				<button class="button--danger" type="reset" id="post-reset">Réinitialiser</button>
+			</li>
+		</ul>
+	</section>
+</form>

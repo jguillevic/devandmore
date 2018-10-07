@@ -1,0 +1,36 @@
+.footer
+{
+	background-color: $main-dark;
+	color: $main-light;
+	padding-left: 1%;
+	padding-right: 1%;
+
+	&__login
+	{
+		font-size: 1.3em;
+		display: inline-block;
+		position: absolute;
+		top: 50%;
+		transform: translate(0, -50%);
+		
+		& > a
+		{
+			transition: color 0.3s;
+
+			&:hover
+			{
+				color: $secondary-color;
+			}
+		}
+	}
+
+	&__copyright
+	{
+		position: absolute;
+		font-familiy: $text-font;
+		display: inline-block;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+	}
+}

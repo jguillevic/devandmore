@@ -1,0 +1,27 @@
+.button
+{
+	display: inline-block;
+	font-family: $text-font;
+	font-size: 1em;
+	color: $main-light;
+	background-color: $main-color;
+	padding: 0.7em;
+	transition: background 0.3s, color 0.3s;
+
+	&:hover
+	{
+		cursor: pointer;
+		background-color: $secondary-color;
+	}
+}
+
+.button--danger
+{
+	@extend .button;
+	background-color: $danger-color;
+
+	&:hover
+	{
+		background-color: $danger-hover-color;
+	}
+}

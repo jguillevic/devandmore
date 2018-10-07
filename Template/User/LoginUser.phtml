@@ -1,0 +1,48 @@
+<?php
+use \Framework\Tools\Helper\RoutesHelper;
+?>
+
+<section class="l-content content">
+	<section class="form">
+
+
+		<form action="<?= RoutesHelper::Path("LoginUser"); ?>" method="POST">
+			<h1 class="form__title">Connexion</h1>
+		
+<?php
+if (isset($params) && array_key_exists("errors", $params))
+{
+?>
+			<section class="form__errors">
+				<ul>
+<?php
+	foreach ($params["errors"] as $error) 
+	{
+?>
+					<li><?php echo $error->GetMessage(); ?></li>
+<?php
+	}
+?>
+				</ul>
+			</section>
+<?php
+}
+?>
+			<section>
+				<label for="username">Identifiant</label>
+				<input class="form__input" id="login-username" name="username" type="text" placeholder="Identifiant" value="<?php if(isset($params) && array_key_exists("user", $params)) { echo $params["user"]->GetUsername(); } ?>"/>
+			</section>
+			<section>
+				<label class="form__label" for="password">Mot de passe</label>
+				<input class="form__input" id="login-password" name="password" type="password" placeholder="Mot de passe" value="<?php if(isset($params) && array_key_exists("user", $params)) { echo $params["user"]->GetPassword(); } ?>"/>
+			</section>
+			<section class="form__buttons">
+				<ul>
+					<li>
+						<button class="button" type="submit">Se connecter</button>
+					</li>
+				</ul>
+			</section>
+		</form>
+	</section>
+</section>

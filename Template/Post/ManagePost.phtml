@@ -1,0 +1,46 @@
+<script src="../Assets/js/module/post-manager.js"></script>
+
+<?php
+use \Framework\Tools\Helper\RoutesHelper;
+?>
+
+<section class="l-content content">
+	<section class="manager">
+		<h1>Gérer les articles</h1>
+        <section class="manager__actions">
+            <ul>
+                <li>
+                    <a class="button" href="<?= RoutesHelper::Path("AddPost"); ?>"><i class="fas fa-plus"></i> Ajouter</a>
+                </li>
+            </ul>
+        </section>
+		<table>
+			<tr>
+    	    	<th scope="col">#</th>
+    	    	<th scope="col">Titre</th>
+    	    	<th scope="col">Publié ?</th>
+    	    	<th scope="col">Actions</th>
+    		</tr>
+<?php 
+if (isset($params) && array_key_exists("posts", $params))
+{
+    $posts = $params["posts"];
+    foreach ($posts as $post) 
+    {
+?>
+            <tr id="<?= "post-".$post->GetId(); ?>">
+				<td><?= $post->GetId(); ?></td>
+				<td><?= $post->GetTitle(); ?></td>
+				<td><?php if($post->GetIsPublished()) { echo "<i class=\"fas fa-check\"></i>"; } else { echo "<i class=\"fas fa-times\"></i>"; } ?></td>
+                <td>
+                    <a class="button" href="<?= RoutesHelper::Path("UpdatePost", [ "id" => $post->GetId() ]); ?>"><i class="fas fa-edit"></i> Éditer</a>
+                    <button class="delete-post-button button--danger" data-post-id="<?= $post->GetId(); ?>"><i class="fas fa-trash"></i> Supprimer</button>
+                </td>
+            </tr>
+<?php
+    }
+}
+?>
+		</table>
+	</section>
+</section>

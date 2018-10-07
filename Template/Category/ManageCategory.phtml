@@ -1,0 +1,45 @@
+<?php
+use \Framework\Tools\Helper\RoutesHelper;
+?>
+
+<section class="l-content content">
+	<section class="manager">
+		<h1>Gérer les catégories</h1>
+		<section class="manager__actions">
+            <ul>
+                <li>
+                    <a class="button" href="<?= RoutesHelper::Path("AddCategory"); ?>"><i class="fas fa-plus"></i> Ajouter</a>
+                </li>
+            </ul>
+		</section>
+		<table>
+			<tr>
+    		   	<th scope="col">#</th>
+    		   	<th scope="col">Nom</th>
+                <th scope="col">Couleur</th>
+    		   	<th scope="col">Visible ?</th>
+    		   	<th scope="col">Actions</th>
+    		</tr>
+<?php 
+if (isset($params) && array_key_exists("categories", $params))
+{
+    $categories = $params["categories"];
+    foreach ($categories as $category) 
+    {
+?>
+            <tr id="<?= "category-".$category->GetId(); ?>">
+                <td><?= $category->GetId(); ?></td>
+				<td><?= $category->GetName(); ?></td>
+                <td><?= $category->GetColor(); ?></td>
+				<td><?php if($category->GetIsVisible()) { echo "<i class=\"far fa-eye\"></i>"; } else { echo "<i class=\"far fa-eye-slash\"></i>"; } ?></td>
+                <td>
+                    <a class="button" href="<?= RoutesHelper::Path("UpdateCategory", [ "id" => $category->GetId() ]); ?>"><i class="fas fa-edit"></i> Éditer</a>
+                </td>
+            </tr>
+<?php
+    }
+}
+?>
+		</table>
+	</section>
+</section>

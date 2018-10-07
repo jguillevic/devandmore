@@ -1,0 +1,101 @@
+.form
+{
+	margin-left: auto;
+	margin-right: auto;
+	display: block;
+	width: 100%;
+
+	& h1
+	{
+		font-family: $title-font;
+		font-size: 2.5em;
+		font-weight: 400;
+		border-bottom: 3px solid $main-dark;
+		padding-bottom: 5px;
+		margin-bottom: 30px;
+	}
+
+	&__errors
+	{
+		display: block;
+		background-color: $danger-color;
+		margin-bottom: 20px;
+
+		& > ul
+		{
+			padding-left: 20px;
+			padding-right: 20px;
+			padding-top: 15px;
+			padding-bottom: 15px;
+
+			& > li
+			{
+				color: $main-light;
+				font-family: $text-font;
+				font-size: 1em;
+				margin-top: 5px;
+				margin-bottom: 5px;
+			}
+		}
+	}
+
+	& label
+	{
+		display: inline-block;
+		font-family: $text-font;
+		font-size: 1.2em;
+		margin-bottom: 10px;
+	}
+
+	&__input
+	{
+		display: block;
+		font-family: $text-font;
+		font-size: 1em;
+		border: 1px solid $main-dark;
+		padding: 0.5em;
+		margin-bottom: 20px;
+		width: 100%;
+		transition: border 0.3s;
+
+		&:hover
+		{
+			border: 1px solid $main-color;
+		}
+
+		&:focus
+		{
+			border: 1px solid $main-color;
+		}
+	}
+
+	& input[type=text], input[type=password], fieldset, select
+	{
+		@extend .form__input;
+	}
+
+	& textarea
+	{
+		@extend .form__input;
+		resize: none;
+	}
+
+	&__buttons
+	{
+		& ul
+		{
+			width: 100%;
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			padding-top: 1em;
+			font-size: 1.3em;
+
+			& li
+			{
+				display: inline-block;
+				margin-right: 1%;
+			}
+		}
+	}
+}

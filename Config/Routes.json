@@ -1,0 +1,98 @@
+[
+	{
+		"Path":"/"
+		, "Controller":"HomeController"
+		, "Action":"Display"
+		, "Name":"DisplayHome"
+	}
+	, {
+		"Path":"/contact"
+		, "Controller":"ContactController"
+		, "Action":"Display"
+		, "Name":"DisplayContact"
+	}
+	, {
+		"Path":"/about"
+		, "Controller":"AboutController"
+		, "Action":"Display"
+		, "Name":"DisplayAbout"
+	}
+	, {
+		"Path":"/user/login"
+		, "Controller":"UserController"
+		, "Action":"Login"
+		, "Name":"LoginUser"
+	}
+	, {
+		"Path":"/user/logout"
+		, "Controller":"UserController"
+		, "Action":"Logout"
+		, "Name":"LogoutUser"
+	}
+	, {
+		"Path":"/image/manage"
+		, "Controller":"ImageController"
+		, "Action":"Manage"
+		, "Name":"ManageImage"
+	}
+	, {
+		"Path":"/image/add"
+		, "Controller":"ImageController"
+		, "Action":"Add"
+		, "Name":"AddImage"
+	}
+	, {
+		"Path":"/image/update"
+		, "Controller":"ImageController"
+		, "Action":"Update"
+		, "Name":"UpdateImage"
+	}
+	, {
+		"Path":"/post/manage"
+		, "Controller":"PostController"
+		, "Action":"Manage"
+		, "Name":"ManagePost"
+	}
+	, {
+		"Path":"/post/display"
+		, "Controller":"PostController"
+		, "Action":"Display"
+		, "Name":"DisplayPost"
+	}
+	, {
+		"Path":"/post/add"
+		, "Controller":"PostController"
+		, "Action":"Add"
+		, "Name":"AddPost"
+	}
+	, {
+		"Path":"/post/update"
+		, "Controller":"PostController"
+		, "Action":"Update"
+		, "Name":"UpdatePost"
+	}
+	, {
+		"Path":"/post/delete"
+		, "Controller":"PostController"
+		, "Action":"Delete"
+		, "Name":"DeletePost"
+	}
+	, {
+		"Path":"/category/manage"
+		, "Controller":"CategoryController"
+		, "Action":"Manage"
+		, "Name":"ManageCategory"
+	}
+	, {
+		"Path":"/category/add"
+		, "Controller":"CategoryController"
+		, "Action":"Add"
+		, "Name":"AddCategory"
+	}
+	, {
+		"Path":"/category/update"
+		, "Controller":"CategoryController"
+		, "Action":"Update"
+		, "Name":"UpdateCategory"
+	}
+]

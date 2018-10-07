@@ -1,0 +1,86 @@
+.carousel
+{
+	width: 100%;
+	height: $carousel-height;
+	position: relative;
+
+	& > ul
+	{
+		width: 100%;
+	}
+
+	&__item
+	{
+		display: none;
+		width: 100%;
+		background-color: $secondary-color;
+
+		&--current
+		{
+			display: inline-block;
+		}
+
+		& > img
+		{
+			background-color: $main-light;
+		    object-fit: cover;
+		    overflow: hidden;
+		    width: 100%;
+		    height: $carousel-height;
+		    display: block;
+		    opacity: 0.7;
+		}
+
+		&__title
+		{
+			position: absolute;
+			left: 150px;
+			top: $carousel-height - 170px;
+			color: $main-light;
+			display: none;
+			padding: 15px;
+			font-size: 2.5em;
+			font-weight: 400;
+			font-family: $text-font;
+		}
+		
+		&__description
+		{
+			position: absolute;
+			left: 150px;
+			top: $carousel-height - 105px;
+			color: $main-light;
+			display: none;
+			padding: 15px;
+			font-size: 0.8em;
+			font-weight: 400;
+			font-family: $text-font;
+		}
+	}
+
+	&__button
+	{
+		font-size: 4em;
+		color: $main-light;
+		position: absolute;
+		bottom: $carousel-height / 2 - 25px;
+		width: 50px;
+		transition: color 0.3s;
+
+		&:hover
+		{
+			cursor: pointer;
+			color: $secondary-color;
+		}
+		
+		&--previous
+		{
+			left: 15px;
+		}
+		
+		&--next
+		{
+			right: 15px;
+		}
+	}
+}
