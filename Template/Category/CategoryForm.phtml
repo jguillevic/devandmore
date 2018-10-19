@@ -2,28 +2,39 @@
 $category = $params["category"];
 ?>
 
-<form class="form" action="<?= $_SERVER['REQUEST_URI'] ?>" method="POST">
+<script type="text/javascript" src="../Assets/js/jquery/jquery-validate-1.17.0.min.js"></script>
+<script src="../Assets/js/form/category-form.js"></script>
+
+<form id="category-form" class="form" action="<?= $_SERVER['REQUEST_URI'] ?>" method="POST">
 	<h1>Éditer une catégorie</h1>
-	<input type="hidden" id="category-id" name="category-id" value="<?= $category->GetId(); ?>">
-	<section>
-		<label for="category-name">Nom</label>
-		<input type="text" id="category-name" name="category-name" value="<?= $category->GetName(); ?>" maxlength="35">
-	</section>
-	<section>
-		<label for="category-color">Couleur</label>
-		<input type="color" id="category-color" name="category-color" value="<?= $category->GetColor(); ?>">
-	</section>
-	<section>
-		<label for="category-is-visible">Visible ?</label>
-		<input type="checkbox" id="category-is-visible" name="category-is-visible" <?php if ($category->GetIsVIsible()) { echo "checked"; } ?>>
+	<section class="form__content">
+		<input type="hidden" id="category-id" name="category-id" value="<?= $category->GetId(); ?>">
+		<section class="form__validation-container">
+			<section class="form__input-container">
+				<label class="form__input-container__label" for="category-name">Nom</label>
+				<input class="form__input-container__input" type="text" id="category-name" name="category-name" value="<?= $category->GetName(); ?>" maxlength="35">
+			</section>
+		</section>
+		<section class="form__validation-container">
+			<section class="form__input-container">
+				<label class="form__input-container__label" for="category-color">Couleur</label>
+				<input class="form__input-container__input" type="color" id="category-color" name="category-color" value="<?= $category->GetColor(); ?>">
+			</section>
+		</section>
+		<section class="form__validation-container">
+			<section class="form__input-container">
+				<label class="form__input-container__label" for="category-is-visible">Visible ?</label>
+				<input class="form__input-container__input" type="checkbox" id="category-is-visible" name="category-is-visible" <?php if ($category->GetIsVIsible()) { echo "checked"; } ?>>
+			</section>
+		</section>
 	</section>
 	<section class="form__buttons">
 		<ul>
 			<li>
-				<button class="button" type="submit" id="category-save">Enregistrer</button>
+				<button class="button--save" type="submit" id="category-save">Enregistrer</button>
 			</li><!--
 			--><li>
-				<button class="button--danger" type="reset" id="category-reset">Réinitialiser</button>
+				<button class="button--reset" type="reset" id="category-reset">Réinitialiser</button>
 			</li>
 		</ul>
 	</section>

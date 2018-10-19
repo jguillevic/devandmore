@@ -38,8 +38,8 @@
 	{
 		position: relative;
 		width: 30%;
-		padding-left: 2%;
-		padding-right: 2%;
+		padding-left: 1.5em;
+		padding-right: 1.5em;
 
 		&__title
 		{
@@ -47,7 +47,7 @@
 			font-family: $title-font;
 			font-size: 1.4em;
 			line-height: 1.6em;
-			margin-bottom: 8%;
+			margin-bottom: 0.7em;
 		}
 
 		&__description
@@ -55,6 +55,7 @@
 			display: block;
 			font-family: $text-font;
 			color: $main-gray;
+			font-size: 0.95em;
 		}
 
 		&__footer

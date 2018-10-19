@@ -2,31 +2,42 @@
 use \Framework\Tools\Helper\RoutesHelper;
 ?>
 
+<script src="../Assets/js/module/carousel.js"></script>
+
 <section class="carousel">
 	<ul>
    		<li class="carousel__item carousel__item--current">
    			<img src="https://picsum.photos/1000/450/?random">
-   			<span class="carousel__item__title">Long titre 1</span>
-   			<span class="carousel__item__description">
-   				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur aut quaerat hic, obcaecati assumenda sit mollitia quo. Eius blanditiis eveniet quisquam dolores, fugit quidem labore magnam, vero necessitatibus laborum ex!</p>
-    			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus iusto laborum, dolorum numquam earum magnam quia blanditiis quo recusandae voluptates harum nemo sunt iste facere sapiente rem ipsa fuga ut.</p>
-    		</span>
-    			</li>
-    			<li class="carousel__item">
-    				<img src="https://picsum.photos/1000/500/?random">
-    				<span class="carousel__item__title">Long titre 2</span>
-    				<span class="carousel__item__description"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur aut quaerat hic, obcaecati assumenda sit mollitia quo. Eius blanditiis eveniet quisquam dolores, fugit quidem labore magnam, vero necessitatibus laborum ex!</p></span>
-    			</li>
-    			<li class="carousel__item">
-    				<img src="https://picsum.photos/1000/400/?random">
-    				<span class="carousel__item__title">Long titre 3</span>
-    				<span class="carousel__item__description"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur aut quaerat hic, obcaecati assumenda sit mollitia quo. Eius blanditiis eveniet quisquam dolores, fugit quidem labore magnam, vero necessitatibus laborum ex!</p></span>
-    			</li>
-    		</ul>
-    		<button class="carousel__button carousel__button--previous"><i class="fas fa-chevron-left"></i></button>
-    		<button class="carousel__button carousel__button--next"><i class="fas fa-chevron-right"></i></button>
-  		</section>
-  		<section class="l-content content">
+   			<section class="carousel__item__info">
+   				<div class="carousel__item__info__title">Long titre 1</div>
+   				<div class="carousel__item__info__description">
+   					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur aut quaerat hic, obcaecati assumenda sit mollitia quo. Eius blanditiis eveniet quisquam dolores, fugit quidem labore magnam, vero necessitatibus laborum ex!</p>
+    				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus iusto laborum, dolorum numquam earum magnam quia blanditiis quo recusandae voluptates harum nemo sunt iste facere sapiente rem ipsa fuga ut.</p>
+    			</div>
+    		</section>
+    	</li>
+    	<li class="carousel__item">
+    		<img src="https://picsum.photos/1000/500/?random">
+    		<section class="carousel__item__info">
+    			<div class="carousel__item__info__title">Long titre 2</div>
+    			<div class="carousel__item__info__description">
+    				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur aut quaerat hic, obcaecati assumenda sit mollitia quo. Eius blanditiis eveniet quisquam dolores, fugit quidem labore magnam, vero necessitatibus laborum ex!</p></div>
+    		</section>
+    	</li>
+    	<li class="carousel__item">
+    		<img src="https://picsum.photos/1000/400/?random">
+    		<section class="carousel__item__info">
+    			<div class="carousel__item__info__title">Long titre 3</div>
+    			<div class="carousel__item__info__description">
+    				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur aut quaerat hic, obcaecati assumenda sit mollitia quo. Eius blanditiis eveniet quisquam dolores, fugit quidem labore magnam, vero necessitatibus laborum ex!</p></div>
+    		</section>
+    	</li>
+    </ul>
+    <button class="carousel__button carousel__button--previous"><i class="fas fa-chevron-left"></i></button>
+    <button class="carousel__button carousel__button--next"><i class="fas fa-chevron-right"></i></button>
+</section>
+
+<section class="l-content content">
 <?php
 $posts = $params["posts"];
 $index = 0;
@@ -36,52 +47,52 @@ foreach ($posts as $post)
 	if ($index === 0)
 	{
 ?>
-				<article class="thumbnail-post">
-  					<header class="thumbnail-post__miniature">
-  						<a href="<?= RoutesHelper::Path("DisplayPost", [ "slug" => $post->GetSlug() ]); ?>">
-							<img src="<?= $post->GetImage()->GetRelativePath(); ?>">
-						</a>
-					</header>
-					<section class="thumbnail-post__info">
-						<div class="thumbnail-post__info__title">
-							<a href="<?= RoutesHelper::Path("DisplayPost", [ "slug" => $post->GetSlug() ]); ?>">
-								<h2><?= $post->GetTitle(); ?></h2>
-							</a>
-						</div>
-						<div class="thumbnail-post__info__description">
-							<p><?= $post->GetDescription(); ?></p>
-						</div>
-						<div class="thumbnail-post__info__footer">
-							<a class="thumbnail-post__info__footer__category" href=""><?= $post->GetCategory()->GetName(); ?></a>
-						</div>
-					</section>
-				</article>
+	<article class="thumbnail-post">
+  		<header class="thumbnail-post__miniature">
+  			<a href="<?= RoutesHelper::Path("DisplayPost", [ "slug" => $post->GetSlug() ]); ?>">
+				<img src="<?= $post->GetImage()->GetRelativePath(); ?>">
+			</a>
+		</header>
+		<section class="thumbnail-post__info">
+			<div class="thumbnail-post__info__title">
+				<a href="<?= RoutesHelper::Path("DisplayPost", [ "slug" => $post->GetSlug() ]); ?>">
+					<h2><?= $post->GetTitle(); ?></h2>
+				</a>
+			</div>
+			<div class="thumbnail-post__info__description">
+				<p><?= $post->GetDescription(); ?></p>
+			</div>
+			<div class="thumbnail-post__info__footer">
+				<a class="thumbnail-post__info__footer__category" href=""><?= $post->GetCategory()->GetName(); ?></a>
+			</div>
+		</section>
+	</article>
 
 <?php
 	}
 	else
 	{
 ?>				
-				<article class="thumbnail-small-post">
-  					<header class="thumbnail-small-post__miniature">
-  						<a href="<?= RoutesHelper::Path("DisplayPost", [ "slug" => $post->GetSlug() ]); ?>">
-							<img src="<?= $post->GetImage()->GetRelativePath(); ?>">
-						</a>
-					</header>
-					<section class="thumbnail-small-post__info">
-						<div class="thumbnail-small-post__info__title">
-							<a href="<?= RoutesHelper::Path("DisplayPost", [ "slug" => $post->GetSlug() ]); ?>">
-								<h2><?= $post->GetTitle(); ?></h2>
-							</a>
-						</div>
-						<div class="thumbnail-small-post__info__footer">
-							<a class="thumbnail-small-post__info__footer__category" href=""><?= $post->GetCategory()->GetName(); ?>	</a>
-						</div>
-					</section>
-				</article>
+	<article class="thumbnail-small-post">
+  		<header class="thumbnail-small-post__miniature">
+  			<a href="<?= RoutesHelper::Path("DisplayPost", [ "slug" => $post->GetSlug() ]); ?>">
+				<img src="<?= $post->GetImage()->GetRelativePath(); ?>">
+			</a>
+		</header>
+		<section class="thumbnail-small-post__info">
+			<div class="thumbnail-small-post__info__title">
+				<a href="<?= RoutesHelper::Path("DisplayPost", [ "slug" => $post->GetSlug() ]); ?>">
+					<h2><?= $post->GetTitle(); ?></h2>
+				</a>
+			</div>
+			<div class="thumbnail-small-post__info__footer">
+				<a class="thumbnail-small-post__info__footer__category" href=""><?= $post->GetCategory()->GetName(); ?>	</a>
+			</div>
+		</section>
+	</article>
 <?php
 	}
 	$index++;
 }
 ?>
-  		</section>
+</section>

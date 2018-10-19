@@ -7,6 +7,7 @@
 	background-color: $main-color;
 	padding: 0.7em;
 	transition: background 0.3s, color 0.3s;
+	text-transform: uppercase;
 
 	&:hover
 	{
@@ -23,5 +24,132 @@
 	&:hover
 	{
 		background-color: $danger-hover-color;
+	}
+}
+
+.button--reset
+{
+	@extend .button--danger;
+
+	&::before
+	{
+		font-family: "Font Awesome 5 Free"; 
+		font-weight: 700;
+		content: "\f0e2";
+		margin-right: 0.6em;
+	}
+}
+
+.button--save
+{
+	@extend .button;
+
+	&::before
+	{
+		font-family: "Font Awesome 5 Free"; 
+		font-weight: 700;
+		content: "\f0c7";
+		margin-right: 0.6em;
+	}
+}
+
+.button--add
+{
+	@extend .button;
+
+	&::before
+	{
+		font-family: "Font Awesome 5 Free"; 
+		font-weight: 700;
+		content: "\f067";
+		margin-right: 0.6em;
+	}
+}
+
+.button--edit
+{
+	@extend .button;
+
+	&::before
+	{
+		font-family: "Font Awesome 5 Free"; 
+		font-weight: 700;
+		content: "\f044";
+		margin-right: 0.6em;
+	}
+}
+
+.button--delete
+{
+	@extend .button--danger;
+
+	&::before
+	{
+		font-family: "Font Awesome 5 Free"; 
+		font-weight: 700;
+		content: "\f1f8";
+		margin-right: 0.6em;
+	}
+}
+
+.button--social
+{
+	font-size: 1.5em;
+	width: 100%;
+  	height: 2em;
+  	color: $main-light;
+  	position: relative;
+  	transition: background 0.3s, color 0.3s;
+  	transition: opacity 0.5s;
+
+	& i
+	{
+		position: absolute;
+    	top: 50%;
+    	left: 50%;
+    	transform: translate(-50%, -50%);
+	}
+
+	&:hover
+	{
+		cursor: pointer;
+		opacity: 0.6;
+	}
+}
+
+.button--facebook
+{
+	background-color: $facebook-color;
+	@extend .button--social;
+}
+
+.button--twitter
+{
+	background-color: $twitter-color;
+	@extend .button--social;
+}
+
+.button--linkedin
+{
+	background-color: $linkedin-color;
+	@extend .button--social;
+}
+
+.button--mail
+{
+	background-color: $googleplus-color;
+	@extend .button--social;
+}
+
+.button--submit
+{
+	@extend .button;
+
+	&::after
+	{
+		font-family: "Font Awesome 5 Free"; 
+		font-weight: 700;
+		content: "\f054";
+		margin-left: 0.6em;
 	}
 }

@@ -409,6 +409,15 @@ option:not(:checked) {
   margin-left: auto;
   margin-right: auto; }
 
+.l-post-content {
+  width: 64%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 3%;
+  padding-right: 3%;
+  padding-top: 3%;
+  padding-bottom: 2%; }
+
 /* Module */
 .header {
   background-color: transparent; }
@@ -459,27 +468,25 @@ option:not(:checked) {
       width: 100%;
       height: 550px;
       display: block;
-      opacity: 0.7; }
-    .carousel__item__title {
+      opacity: 0.9; }
+    .carousel__item__info {
       position: absolute;
-      left: 150px;
-      top: 380px;
-      color: #FFFFFF;
-      display: none;
-      padding: 15px;
-      font-size: 2.5em;
-      font-weight: 400;
-      font-family: "Roboto"; }
-    .carousel__item__description {
-      position: absolute;
-      left: 150px;
-      top: 445px;
-      color: #FFFFFF;
-      display: none;
-      padding: 15px;
-      font-size: 0.8em;
-      font-weight: 400;
-      font-family: "Roboto"; }
+      left: 5em;
+      bottom: 3em;
+      text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.8);
+      width: 60%;
+      display: none; }
+      .carousel__item__info__title {
+        color: #FFFFFF;
+        font-size: 2.5em;
+        font-weight: 700;
+        font-family: "Roboto";
+        margin-bottom: 0.3em; }
+      .carousel__item__info__description {
+        color: #FFFFFF;
+        font-size: 1em;
+        font-weight: 400;
+        font-family: "Roboto"; }
   .carousel__button {
     font-size: 4em;
     color: #FFFFFF;
@@ -487,7 +494,8 @@ option:not(:checked) {
     bottom: 250px;
     width: 50px;
     -webkit-transition: color 0.3s;
-    transition: color 0.3s; }
+    transition: color 0.3s;
+    text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.6); }
     .carousel__button:hover {
       cursor: pointer;
       color: #42A5F5; }
@@ -653,18 +661,19 @@ option:not(:checked) {
   .thumbnail-post__info {
     position: relative;
     width: 30%;
-    padding-left: 2%;
-    padding-right: 2%; }
+    padding-left: 1.5em;
+    padding-right: 1.5em; }
     .thumbnail-post__info__title {
       display: block;
       font-family: "Open Sans";
       font-size: 1.4em;
       line-height: 1.6em;
-      margin-bottom: 8%; }
+      margin-bottom: 0.7em; }
     .thumbnail-post__info__description {
       display: block;
       font-family: "Roboto";
-      color: #909090; }
+      color: #909090;
+      font-size: 0.95em; }
     .thumbnail-post__info__footer {
       position: absolute;
       bottom: 5%;
@@ -766,12 +775,24 @@ option:not(:checked) {
     font-family: "Open Sans";
     font-size: 2.5em;
     font-weight: 400;
-    border-bottom: 3px solid #000000;
-    padding-bottom: 5px;
-    margin-bottom: 30px; }
+    font-weight: 400;
+    padding: 0.3em;
+    margin-top: 0;
+    color: #000000;
+    border-bottom: 0.05em solid #1976D2;
+    padding-bottom: 0em;
+    padding-left: 0;
+    margin-bottom: 1em;
+    text-transform: uppercase; }
+    .form h1::before {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 600;
+      content: "\f292";
+      margin-right: 0.15em;
+      color: #1976D2; }
   .form__errors {
     display: block;
-    background-color: #D9534F;
+    background-color: #DC3545;
     margin-bottom: 20px; }
     .form__errors > ul {
       padding-left: 20px;
@@ -784,28 +805,70 @@ option:not(:checked) {
         font-size: 1em;
         margin-top: 5px;
         margin-bottom: 5px; }
-  .form label {
-    display: inline-block;
-    font-family: "Roboto";
-    font-size: 1.2em;
-    margin-bottom: 10px; }
-  .form__input, .form input[type=text], .form input[type=password], .form fieldset, .form select, .form textarea {
+  .form label.error {
     display: block;
     font-family: "Roboto";
-    font-size: 1em;
-    border: 1px solid #000000;
-    padding: 0.5em;
-    margin-bottom: 20px;
-    width: 100%;
-    -webkit-transition: border 0.3s;
-    transition: border 0.3s; }
-    .form__input:hover, .form input[type=text]:hover, .form input[type=password]:hover, .form fieldset:hover, .form select:hover, .form textarea:hover {
-      border: 1px solid #1976D2; }
-    .form__input:focus, .form input[type=text]:focus, .form input[type=password]:focus, .form fieldset:focus, .form select:focus, .form textarea:focus {
-      border: 1px solid #1976D2; }
-  .form textarea {
-    resize: none; }
-  .form__buttons ul {
+    text-align: left;
+    padding-top: 0.7em;
+    padding-bottom: 0.7em;
+    padding-left: 0.7em;
+    font-size: 0.8em;
+    color: #FFFFFF;
+    background-color: #DC3545; }
+    .form label.error::before {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 700;
+      content: "\f071";
+      margin-right: 0.6em; }
+  .form__validation-container {
+    margin-bottom: 1.5em; }
+  .form__input-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%; }
+    .form__input-container__icon {
+      background-color: #1976D2;
+      color: #FFFFFF;
+      text-align: center;
+      padding: 1em;
+      width: 3.5em; }
+      .form__input-container__icon.error {
+        background-color: #DC3545; }
+    .form__input-container__label {
+      padding-right: 0.7em;
+      font-size: 1.5em;
+      width: 10em;
+      text-align: right; }
+    .form__input-container__input {
+      display: inline-block;
+      font-family: "Roboto";
+      font-size: 1em;
+      border: 0.12em solid #909090;
+      padding: 0.5em;
+      -webkit-box-flex: 1;
+          -ms-flex: 1;
+              flex: 1;
+      -webkit-box-sizing: border-box;
+              box-sizing: border-box;
+      resize: none; }
+      .form__input-container__input::-webkit-input-placeholder {
+        font-style: italic; }
+      .form__input-container__input:-ms-input-placeholder {
+        font-style: italic; }
+      .form__input-container__input::-ms-input-placeholder {
+        font-style: italic; }
+      .form__input-container__input::placeholder {
+        font-style: italic; }
+      .form__input-container__input:focus {
+        border-width: 0.15em;
+        border-color: #1976D2; }
+        .form__input-container__input:focus.error {
+          border-color: #DC3545; }
+      .form__input-container__input.error {
+        border-width: 0.15em;
+        border-color: #DC3545; }
+  .form__buttons > ul {
     width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -819,9 +882,12 @@ option:not(:checked) {
             justify-content: center;
     padding-top: 1em;
     font-size: 1.3em; }
-    .form__buttons ul li {
-      display: inline-block;
-      margin-right: 1%; }
+    .form__buttons > ul > li {
+      display: inline-block; }
+      .form__buttons > ul > li:not(:first-child) {
+        margin-left: 0.5em; }
+      .form__buttons > ul > li:not(:last-child) {
+        margin-right: 0.5em; }
 
 .manager {
   width: 100%; }
@@ -861,7 +927,7 @@ option:not(:checked) {
       display: inline-block;
       margin-right: 1%; }
 
-.button, .button--danger {
+.button, .button--danger, .button--reset, .button--delete, .button--save, .button--add, .button--edit, .button--submit {
   display: inline-block;
   font-family: "Roboto";
   font-size: 1em;
@@ -869,15 +935,84 @@ option:not(:checked) {
   background-color: #1976D2;
   padding: 0.7em;
   -webkit-transition: background 0.3s, color 0.3s;
-  transition: background 0.3s, color 0.3s; }
-  .button:hover, .button--danger:hover {
+  transition: background 0.3s, color 0.3s;
+  text-transform: uppercase; }
+  .button:hover, .button--danger:hover, .button--reset:hover, .button--delete:hover, .button--save:hover, .button--add:hover, .button--edit:hover, .button--submit:hover {
     cursor: pointer;
     background-color: #42A5F5; }
 
-.button--danger {
-  background-color: #D9534F; }
-  .button--danger:hover {
+.button--danger, .button--reset, .button--delete {
+  background-color: #DC3545; }
+  .button--danger:hover, .button--reset:hover, .button--delete:hover {
     background-color: #E27C79; }
+
+.button--reset::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 700;
+  content: "\f0e2";
+  margin-right: 0.6em; }
+
+.button--save::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 700;
+  content: "\f0c7";
+  margin-right: 0.6em; }
+
+.button--add::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 700;
+  content: "\f067";
+  margin-right: 0.6em; }
+
+.button--edit::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 700;
+  content: "\f044";
+  margin-right: 0.6em; }
+
+.button--delete::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 700;
+  content: "\f1f8";
+  margin-right: 0.6em; }
+
+.button--social, .button--facebook, .button--twitter, .button--linkedin, .button--mail {
+  font-size: 1.5em;
+  width: 100%;
+  height: 2em;
+  color: #FFFFFF;
+  position: relative;
+  -webkit-transition: background 0.3s, color 0.3s;
+  transition: background 0.3s, color 0.3s;
+  -webkit-transition: opacity 0.5s;
+  transition: opacity 0.5s; }
+  .button--social i, .button--facebook i, .button--twitter i, .button--linkedin i, .button--mail i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%); }
+  .button--social:hover, .button--facebook:hover, .button--twitter:hover, .button--linkedin:hover, .button--mail:hover {
+    cursor: pointer;
+    opacity: 0.6; }
+
+.button--facebook {
+  background-color: #3B5998; }
+
+.button--twitter {
+  background-color: #00ACED; }
+
+.button--linkedin {
+  background-color: #007BB6; }
+
+.button--mail {
+  background-color: #DD4B39; }
+
+.button--submit::after {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 700;
+  content: "\f054";
+  margin-left: 0.6em; }
 
 #image-preview {
   background-color: #FFFFFF;
@@ -889,37 +1024,139 @@ option:not(:checked) {
   display: block; }
 
 .post {
-  width: 100%; }
+  width: 100%;
+  background-color: transparent; }
   .post__header {
-    margin-bottom: 4%; }
+    width: 100%;
+    position: relative; }
+    .post__header__info {
+      position: absolute;
+      left: 5em;
+      bottom: 7em;
+      text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.6);
+      width: 50%; }
+      .post__header__info__title {
+        font-family: "Open Sans";
+        font-size: 2.5em;
+        line-height: 1.3em;
+        margin-bottom: 0.3em;
+        color: #FFFFFF; }
+      .post__header__info__complement {
+        font-family: "Roboto";
+        font-size: 1em;
+        font-style: italic;
+        color: #FFFFFF; }
+        .post__header__info__complement__date::before {
+          font-family: "Font Awesome 5 Free";
+          font-weight: 600;
+          content: "\f133";
+          margin-right: 0.3em;
+          font-style: normal; }
     .post__header__img {
-      background-color: #FFFFFF;
+      background-color: #1976D2;
       -o-object-fit: cover;
          object-fit: cover;
       overflow: hidden;
       width: 100%;
-      height: 450px;
+      height: 500px;
       display: block; }
-    .post__header__title {
-      font-family: "Open Sans";
-      font-size: 2.5em;
-      line-height: 1.3em;
-      margin-bottom: 1.5%;
-      padding-bottom: 0; }
-    .post__header__description {
-      font-family: "Roboto";
-      font-size: 1.4em;
-      color: #909090;
-      margin-bottom: 2%; }
-    .post__header__complement {
-      font-family: "Roboto";
-      font-size: 1em; }
-  .post__content {
+  .post-content {
     font-family: "Roboto";
-    font-size: 1.2em; }
-    .post__content p {
-      margin-top: 2%;
-      margin-bottom: 2%; }
+    font-size: 1.2em;
+    position: relative;
+    background-color: #FFFFFF; }
+    .post-content__description {
+      font-size: 1.3em;
+      color: #000000;
+      margin-bottom: 2em; }
+    .post-content__socialbar {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row; }
+    .post-content__text {
+      margin-bottom: 4em; }
+      .post-content__text p {
+        font-size: 1em;
+        line-height: 1.5em;
+        margin-top: 0.5em;
+        margin-bottom: 0.5em;
+        color: #505050; }
+      .post-content__text h2 {
+        font-family: "Open Sans";
+        font-weight: 700;
+        font-size: 2em;
+        padding-top: 0.6em;
+        padding-bottom: 0.2em;
+        color: #000000;
+        margin-top: 1em; }
+        .post-content__text h2:before {
+          font-family: "Font Awesome 5 Free";
+          font-weight: 600;
+          content: "\f292";
+          margin-right: 0.3em;
+          font-style: normal;
+          color: #1976D2;
+          font-size: 0.8em; }
+      .post-content__text hr {
+        height: 6px;
+        width: 50%;
+        background-color: #1976D2;
+        margin-left: auto;
+        margin-right: auto;
+        border: none;
+        margin-top: 3em;
+        margin-bottom: 3em; }
+
+.quote {
+  font-family: "Open Sans";
+  font-size: 1.2em;
+  font-style: italic;
+  color: #000000;
+  display: block;
+  position: relative;
+  margin-bottom: 2em;
+  margin-top: 2em;
+  border-left: 0.2em solid #1976D2;
+  padding-left: 0.7em;
+  padding-right: 0.7em;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  margin-left: 3em;
+  margin-right: 3em;
+  background-color: #F0F0F0; }
+  .quote::before {
+    font-style: normal;
+    font-size: 3em;
+    color: #1976D2;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+    content: "\f10d";
+    display: block;
+    position: absolute;
+    left: -1.2em;
+    top: -0.2em; }
+  .quote::after {
+    font-style: normal;
+    font-size: 3em;
+    color: #1976D2;
+    font-family: "Font Awesome 5 Free";
+    font-weight: 600;
+    content: "\f10e";
+    display: block;
+    position: absolute;
+    right: -1.2em;
+    bottom: -0.2em; }
+  .quote__source {
+    margin-top: 0.7em;
+    margin-right: 2em;
+    display: block;
+    color: #909090;
+    font-size: 0.7em;
+    text-align: right; }
 
 /* Theme */
 

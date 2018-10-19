@@ -1,0 +1,58 @@
+.quote
+{
+	font-family: $title-font;
+	font-size: 1.2em;
+	font-style: italic;
+	color: $main-dark;
+	display: block;
+	position: relative;
+	margin-bottom: 2em;
+	margin-top: 2em;
+	border-left: 0.2em solid $main-color;
+	padding-left: 0.7em;
+	padding-right: 0.7em;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	margin-left: 3em;
+	margin-right: 3em;
+	background-color: $secondary-light;
+
+	&::before
+	{
+		font-style: normal;
+		font-size: 3em;
+		color: $main-color;
+		font-family: "Font Awesome 5 Free"; 
+	  	font-weight: 600;
+	  	content: "\f10d";
+	  	display: block;
+	  	position: absolute;
+	  	left: -1.2em;
+	  	top: -0.2em;
+	}
+	
+	&::after
+	{
+		font-style: normal;
+		font-size: 3em;
+		color: $main-color;
+		font-family: "Font Awesome 5 Free"; 
+	  	font-weight: 600;
+	  	content: "\f10e";
+	  	display: block;
+	  	position: absolute;
+	  	right: -1.2em;
+	  	bottom: -0.2em;
+	}
+
+	&__source
+	{
+		margin-top: 0.7em;
+		margin-right: 2em;
+		display: block;
+		color: $main-gray;
+		font-size: 0.7em;
+		text-align: right;
+	}
+}
+

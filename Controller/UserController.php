@@ -26,13 +26,13 @@ class UserController
 			{
 				$user = new User();
 
-				if (array_key_exists("username", $queryParameters))
+				if (array_key_exists("user-username", $queryParameters))
 				{
-					$user->SetUsername($queryParameters["username"]->GetValue());
+					$user->SetUsername($queryParameters["user-username"]->GetValue());
 				}
-				if (array_key_exists("password", $queryParameters))
+				if (array_key_exists("user-password", $queryParameters))
 				{
-					$user->SetPassword($queryParameters["password"]->GetValue());
+					$user->SetPassword($queryParameters["user-password"]->GetValue());
 				}
 
 				$userBLL = new UserBLL();

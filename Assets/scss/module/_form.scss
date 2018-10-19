@@ -10,9 +10,24 @@
 		font-family: $title-font;
 		font-size: 2.5em;
 		font-weight: 400;
-		border-bottom: 3px solid $main-dark;
-		padding-bottom: 5px;
-		margin-bottom: 30px;
+		font-weight: 400;
+		padding: 0.3em;
+		margin-top: 0;
+		color: $main-dark;
+		border-bottom: 0.05em solid $main-color;
+		padding-bottom: 0em;
+		padding-left: 0;
+		margin-bottom: 1em;
+		text-transform: uppercase;
+
+		&::before
+		{
+			font-family: "Font Awesome 5 Free"; 
+			font-weight: 600;
+			content: "\f292";
+			margin-right: 0.15em;
+			color: $main-color;
+		}
 	}
 
 	&__errors
@@ -41,48 +56,98 @@
 
 	& label
 	{
-		display: inline-block;
-		font-family: $text-font;
-		font-size: 1.2em;
-		margin-bottom: 10px;
-	}
-
-	&__input
-	{
-		display: block;
-		font-family: $text-font;
-		font-size: 1em;
-		border: 1px solid $main-dark;
-		padding: 0.5em;
-		margin-bottom: 20px;
-		width: 100%;
-		transition: border 0.3s;
-
-		&:hover
+		&.error
 		{
-			border: 1px solid $main-color;
-		}
+			display: block;
+			font-family: $text-font;
+			text-align: left;
+			padding-top: 0.7em;
+			padding-bottom: 0.7em;
+			padding-left: 0.7em;
+			font-size: 0.8em;
+			color: $main-light;
+			background-color: $danger-color;
 
-		&:focus
-		{
-			border: 1px solid $main-color;
+			&::before
+			{
+				font-family: "Font Awesome 5 Free"; 
+				font-weight: 700;
+				content: "\f071";
+				margin-right: 0.6em;
+			}
 		}
 	}
 
-	& input[type=text], input[type=password], fieldset, select
+	&__validation-container
 	{
-		@extend .form__input;
+		margin-bottom: 1.5em;
 	}
 
-	& textarea
+	&__input-container
 	{
-		@extend .form__input;
-		resize: none;
+		display: flex;
+  		width: 100%;
+
+  		&__icon
+  		{
+  			background-color: $main-color;
+			color: $main-light;
+			text-align: center;
+			padding: 1em;
+			width: 3.5em;
+
+			&.error
+			{
+				background-color: $danger-color;
+			}
+  		}
+
+  		&__label
+  		{
+  			padding-right: 0.7em;
+  			font-size: 1.5em;
+  			width: 10em;
+  			text-align: right;
+  		}
+
+  		&__input
+  		{
+  			display: inline-block;
+			font-family: $text-font;
+			font-size: 1em;
+			border: 0.12em solid $main-gray;
+			padding: 0.5em;
+			flex: 1;
+    		box-sizing: border-box;
+    		resize: none;
+
+    		&::placeholder
+    		{
+    			font-style: italic;
+    		}
+
+			&:focus
+			{
+				border-width: 0.15em;
+				border-color: $main-color;
+
+				&.error
+				{
+					border-color: $danger-color;
+				}
+			}
+
+			&.error
+			{
+				border-width: 0.15em;
+				border-color: $danger-color;
+			}
+  		}
 	}
 
 	&__buttons
 	{
-		& ul
+		& > ul
 		{
 			width: 100%;
 			display: flex;
@@ -91,10 +156,19 @@
 			padding-top: 1em;
 			font-size: 1.3em;
 
-			& li
+			& > li
 			{
 				display: inline-block;
-				margin-right: 1%;
+
+				&:not(:first-child)
+				{
+					margin-left: 0.5em;
+				}
+
+				&:not(:last-child)
+				{
+					margin-right: 0.5em;
+				}
 			}
 		}
 	}

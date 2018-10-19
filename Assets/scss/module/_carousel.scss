@@ -28,33 +28,34 @@
 		    width: 100%;
 		    height: $carousel-height;
 		    display: block;
-		    opacity: 0.7;
+		    opacity: 0.9;
 		}
 
-		&__title
+		&__info
 		{
 			position: absolute;
-			left: 150px;
-			top: $carousel-height - 170px;
-			color: $main-light;
-			display: none;
-			padding: 15px;
-			font-size: 2.5em;
-			font-weight: 400;
-			font-family: $text-font;
-		}
-		
-		&__description
-		{
-			position: absolute;
-			left: 150px;
-			top: $carousel-height - 105px;
-			color: $main-light;
-			display: none;
-			padding: 15px;
-			font-size: 0.8em;
-			font-weight: 400;
-			font-family: $text-font;
+			left: 5em;
+			bottom: 3em;
+			text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.8);
+            width: 60%;
+            display: none;
+
+			&__title
+			{
+				color: $main-light;
+				font-size: 2.5em;
+				font-weight: 700;
+				font-family: $text-font;
+				margin-bottom: 0.3em;
+			}
+			
+			&__description
+			{
+				color: $main-light;
+				font-size: 1em;
+				font-weight: 400;
+				font-family: $text-font;
+			}
 		}
 	}
 
@@ -66,6 +67,7 @@
 		bottom: $carousel-height / 2 - 25px;
 		width: 50px;
 		transition: color 0.3s;
+		text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.6);
 
 		&:hover
 		{

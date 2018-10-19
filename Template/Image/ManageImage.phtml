@@ -8,10 +8,10 @@ use \Framework\Tools\Helper\RoutesHelper;
 		<section class="manager__actions">
             <ul>
                 <li>
-                    <a class="button" href="<?= RoutesHelper::Path("AddImage", [ "source" => "URL" ]); ?>"><i class="fas fa-plus"></i> Url</a>
+                    <a class="button--add" href="<?= RoutesHelper::Path("AddImage", [ "source" => "URL" ]); ?>">Url</a>
                 </li><!--
                 --><li>
-                    <a class="button" href="<?= RoutesHelper::Path("AddImage", [ "source" => "LOCAL" ]); ?>"><i class="fas fa-plus"></i> Local</a>
+                    <a class="button--add" href="<?= RoutesHelper::Path("AddImage", [ "source" => "LOCAL" ]); ?>">Local</a>
                 </li>
             </ul>
 		</section>
@@ -36,7 +36,7 @@ if (isset($params) && array_key_exists("images", $params))
                 <td><img src="<?= $image->GetRelativePath(); ?>"></td>
 				<td><?php if($image->GetIsVisible()) { echo "<i class=\"far fa-eye\"></i>"; } else { echo "<i class=\"far fa-eye-slash\"></i>"; } ?></td>
                 <td>
-                    <a class="button" href="<?= RoutesHelper::Path("UpdateImage", [ "id" => $image->GetId() ]); ?>"><i class="fas fa-edit"></i> Éditer</a>
+                    <a class="button--edit" href="<?= RoutesHelper::Path("UpdateImage", [ "id" => $image->GetId() ]); ?>">Éditer</a>
                 </td>
             </tr>
 <?php

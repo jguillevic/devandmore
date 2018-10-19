@@ -1,64 +1,125 @@
 .post
 {
-	width: 100%;
+    width: 100%;
+    background-color: transparent;
 
-	&__header
+    &__header
+    {
+        width: 100%;
+        position: relative;
+  
+    	&__info
+    	{
+    	  	position: absolute;
+            left: 5em;
+            bottom: 7em;
+            text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.6);
+            width: 50%;
+
+            &__title
+            {
+    	  	   font-family: $title-font;
+    	  	   font-size: 2.5em;
+    	  	   line-height: 1.3em;
+    	  	   margin-bottom: 0.3em;
+    	  	   color: $main-light;
+            }
+
+            &__complement
+            {
+                font-family: $text-font;
+                font-size: 1em;
+                font-style: italic;
+                color: $main-light;
+
+                &__date::before
+                {
+                    font-family: "Font Awesome 5 Free"; 
+                    font-weight: 600;
+                    content: "\f133";
+                    margin-right: 0.3em;
+                    font-style: normal;
+	 	    	}
+            }
+        }
+
+    	&__img
+    	{
+            background-color: $main-color;
+            object-fit: cover;
+            overflow: hidden;
+            width: 100%;
+            height: 500px;
+            display: block;
+    	}
+    }
+
+    &-content
 	{
-		margin-bottom: 4%;
+        font-family: $text-font;
+    	font-size: 1.2em;
+    	position: relative;
+        background-color: $main-light;
 
-		&__img
-		{
-			background-color: $main-light;
-			object-fit: cover;
-			overflow: hidden;
-			width: 100%;
-			height: 450px;
-			display: block;
-		}
-	
-		&__title
-		{
-			font-family: $title-font;
-			font-size: 2.5em;
-			line-height: 1.3em;
-			margin-bottom: 1.5%;
-			padding-bottom: 0;
-		}
-	
-		&__description
-		{
-			font-family: $text-font;
-			font-size: 1.4em;
-			color: $main-gray;
-			margin-bottom: 2%;
-		}
-	
-		&__complement
-		{
-			font-family: $text-font;
-			font-size: 1em;
-		}
-	
-		&__author
-		{
-	
-		}
-	
-		&__date
-		{
-	
-		}
-	}
+    	&__description
+    	{
+            font-size: 1.3em;
+            color: $main-dark;
+            margin-bottom: 2em;
+    	}
 
-	&__content
-	{
-		font-family: $text-font;
-		font-size: 1.2em;
+        &__socialbar
+        {
+            display: flex;
+            flex-direction: row;
+        }
+  
+        &__text
+    	{
+            margin-bottom: 4em;
 
-		& p
-		{
-			margin-top: 2%;
-			margin-bottom: 2%;
-		}
-	}
+            & p
+            {
+                font-size: 1em;
+    			line-height: 1.5em;
+    			margin-top: 0.5em;
+    			margin-bottom: 0.5em;
+    			color: $secondary-gray;
+            }
+  
+            & h2
+            {
+    			font-family: $title-font;
+    			font-weight: 700;
+    			font-size: 2em;
+    			padding-top: 0.6em;
+    			padding-bottom: 0.2em;
+    			color: $main-dark;
+    			margin-top: 1em;
+  
+    			&:before
+    			{
+                    font-family: "Font Awesome 5 Free"; 
+                    font-weight: 600;
+                    content: "\f292";
+                    margin-right: 0.3em;
+                    font-style: normal;
+                    color: $main-color;
+                    font-size: 0.8em;
+                }
+            }
+  
+            & hr
+            {
+    			height: 6px;
+    			width: 50%;
+    			background-color: $main-color;
+    			margin-left: auto;
+    			margin-right: auto;
+    			border: none;
+    			margin-top: 3em;
+    			margin-bottom: 3em;
+            }
+        }
+    }
 }

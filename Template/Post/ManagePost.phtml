@@ -10,7 +10,7 @@ use \Framework\Tools\Helper\RoutesHelper;
         <section class="manager__actions">
             <ul>
                 <li>
-                    <a class="button" href="<?= RoutesHelper::Path("AddPost"); ?>"><i class="fas fa-plus"></i> Ajouter</a>
+                    <a class="button--add" href="<?= RoutesHelper::Path("AddPost"); ?>">Ajouter</a>
                 </li>
             </ul>
         </section>
@@ -33,8 +33,8 @@ if (isset($params) && array_key_exists("posts", $params))
 				<td><?= $post->GetTitle(); ?></td>
 				<td><?php if($post->GetIsPublished()) { echo "<i class=\"fas fa-check\"></i>"; } else { echo "<i class=\"fas fa-times\"></i>"; } ?></td>
                 <td>
-                    <a class="button" href="<?= RoutesHelper::Path("UpdatePost", [ "id" => $post->GetId() ]); ?>"><i class="fas fa-edit"></i> Éditer</a>
-                    <button class="delete-post-button button--danger" data-post-id="<?= $post->GetId(); ?>"><i class="fas fa-trash"></i> Supprimer</button>
+                    <a class="button--edit" href="<?= RoutesHelper::Path("UpdatePost", [ "id" => $post->GetId() ]); ?>">Éditer</a>
+                    <button class="delete-post-button button--delete" data-post-id="<?= $post->GetId(); ?>">Supprimer</button>
                 </td>
             </tr>
 <?php

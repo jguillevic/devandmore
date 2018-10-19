@@ -2,47 +2,52 @@
 use \Framework\Tools\Helper\RoutesHelper;
 ?>
 
+<script type="text/javascript" src="../Assets/js/jquery/jquery-validate-1.17.0.min.js"></script>
+<script type="text/javascript" src="../Assets/js/module/login-user.js"></script>
+
 <section class="l-content content">
-	<section class="form">
-
-
-		<form action="<?= RoutesHelper::Path("LoginUser"); ?>" method="POST">
-			<h1 class="form__title">Connexion</h1>
+	<form class="form" id="user-login-form" action="<?= RoutesHelper::Path("LoginUser"); ?>" method="POST">
+		<h1>Connexion</h1>
 		
 <?php
 if (isset($params) && array_key_exists("errors", $params))
 {
 ?>
-			<section class="form__errors">
-				<ul>
+		<section class="form__errors">
+			<ul>
 <?php
 	foreach ($params["errors"] as $error) 
 	{
 ?>
-					<li><?php echo $error->GetMessage(); ?></li>
+				<li><?php echo $error->GetMessage(); ?></li>
 <?php
 	}
 ?>
-				</ul>
-			</section>
+			</ul>
+		</section>
 <?php
 }
 ?>
-			<section>
-				<label for="username">Identifiant</label>
-				<input class="form__input" id="login-username" name="username" type="text" placeholder="Identifiant" value="<?php if(isset($params) && array_key_exists("user", $params)) { echo $params["user"]->GetUsername(); } ?>"/>
+		<section class="form__content">
+			<section class="form__validation-container">
+				<section class="form__input-container">
+					<div class="form__input-container__icon"><i class="fas fa-user"></i></div>
+					<input class="form__input-container__input" id="user-username" name="user-username" type="text" placeholder="Identifiant" value="<?php if(	isset($params) && array_key_exists("user", $params)) { echo $params["user"]-GetUsername(); } ?>"/>
+				</section>
 			</section>
-			<section>
-				<label class="form__label" for="password">Mot de passe</label>
-				<input class="form__input" id="login-password" name="password" type="password" placeholder="Mot de passe" value="<?php if(isset($params) && array_key_exists("user", $params)) { echo $params["user"]->GetPassword(); } ?>"/>
+			<section class="form__validation-container">
+				<section class="form__input-container">
+					<div class="form__input-container__icon"><i class="fas fa-key"></i></div>
+					<input class="form__input-container__input" id="user-password" name="user-password" type="password" placeholder="Mot de passe" value="<?php if(isset($params) && array_key_exists("user", $params)) { echo $params["user"]-GetPassword(); } ?>"/>
+				</section>
 			</section>
-			<section class="form__buttons">
-				<ul>
-					<li>
-						<button class="button" type="submit">Se connecter</button>
-					</li>
-				</ul>
-			</section>
-		</form>
-	</section>
+		</section>
+		<section class="form__buttons">
+			<ul>
+				<li>
+					<button id="submit-button" class="button--submit" type="submit">Se connecter</button>
+				</li>
+			</ul>
+		</section>
+	</form>
 </section>
