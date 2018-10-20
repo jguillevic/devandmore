@@ -1,45 +1,39 @@
 <?php
 use \Framework\Tools\Helper\RoutesHelper;
+
+$posts = $params["posts"];
 ?>
 
 <script src="../Assets/js/module/carousel.js"></script>
+<script id="dsq-count-scr" src="//devnmore.disqus.com/count.js" async></script>
 
 <section class="carousel">
 	<ul>
-   		<li class="carousel__item carousel__item--current">
-   			<img src="https://picsum.photos/1000/450/?random">
-   			<section class="carousel__item__info">
-   				<div class="carousel__item__info__title">Long titre 1</div>
-   				<div class="carousel__item__info__description">
-   					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur aut quaerat hic, obcaecati assumenda sit mollitia quo. Eius blanditiis eveniet quisquam dolores, fugit quidem labore magnam, vero necessitatibus laborum ex!</p>
-    				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus iusto laborum, dolorum numquam earum magnam quia blanditiis quo recusandae voluptates harum nemo sunt iste facere sapiente rem ipsa fuga ut.</p>
-    			</div>
-    		</section>
+<?php
+foreach ($posts as $post) 
+{
+?>
+   		<li class="carousel__item">
+			<a href="<?= RoutesHelper::Path("DisplayPost", [ "slug" => $post->GetSlug() ]); ?>">
+   				<img class="carousel__item__image" src="<?= $post->GetImage()->GetRelativePath(); ?>">
+   				<section class="carousel__item__info">
+   					<div class="carousel__item__info__title"><?= $post->GetTitle(); ?></div>
+   					<div class="carousel__item__info__description">
+   						<p><?= $post->GetDescription(); ?></p>
+    				</div>
+				</section>
+			</a>
     	</li>
-    	<li class="carousel__item">
-    		<img src="https://picsum.photos/1000/500/?random">
-    		<section class="carousel__item__info">
-    			<div class="carousel__item__info__title">Long titre 2</div>
-    			<div class="carousel__item__info__description">
-    				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur aut quaerat hic, obcaecati assumenda sit mollitia quo. Eius blanditiis eveniet quisquam dolores, fugit quidem labore magnam, vero necessitatibus laborum ex!</p></div>
-    		</section>
-    	</li>
-    	<li class="carousel__item">
-    		<img src="https://picsum.photos/1000/400/?random">
-    		<section class="carousel__item__info">
-    			<div class="carousel__item__info__title">Long titre 3</div>
-    			<div class="carousel__item__info__description">
-    				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur aut quaerat hic, obcaecati assumenda sit mollitia quo. Eius blanditiis eveniet quisquam dolores, fugit quidem labore magnam, vero necessitatibus laborum ex!</p></div>
-    		</section>
-    	</li>
-    </ul>
-    <button class="carousel__button carousel__button--previous"><i class="fas fa-chevron-left"></i></button>
-    <button class="carousel__button carousel__button--next"><i class="fas fa-chevron-right"></i></button>
+<?php
+}
+?>
+	</ul>
+	<button class="carousel__button carousel__button--previous"><i class="fas fa-chevron-left"></i></button>
+	<button class="carousel__button carousel__button--next"><i class="fas fa-chevron-right"></i></button>
 </section>
 
 <section class="l-content content">
 <?php
-$posts = $params["posts"];
 $index = 0;
 
 foreach ($posts as $post) 
@@ -64,6 +58,7 @@ foreach ($posts as $post)
 			</div>
 			<div class="thumbnail-post__info__footer">
 				<a class="thumbnail-post__info__footer__category" href=""><?= $post->GetCategory()->GetName(); ?></a>
+				<a class="thumbnail-post__info__footer__comments-count" href="<?= RoutesHelper::Path("DisplayPost", [ "slug" => $post->GetSlug()."#disqus_thread" ]); ?>">Lien</a>
 			</div>
 		</section>
 	</article>
@@ -86,7 +81,8 @@ foreach ($posts as $post)
 				</a>
 			</div>
 			<div class="thumbnail-small-post__info__footer">
-				<a class="thumbnail-small-post__info__footer__category" href=""><?= $post->GetCategory()->GetName(); ?>	</a>
+				<a class="thumbnail-small-post__info__footer__category" href=""><?= $post->GetCategory()->GetName(); ?></a>
+				<a class="thumbnail-small-post__info__footer__comments-count" href="<?= RoutesHelper::Path("DisplayPost", [ "slug" => $post->GetSlug() ])."#disqus_thread"; ?>"></a>
 			</div>
 		</section>
 	</article>

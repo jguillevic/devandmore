@@ -13,29 +13,29 @@
 	{
 		display: none;
 		width: 100%;
-		background-color: $secondary-color;
+		background-color: $main-color;
 
 		&--current
 		{
 			display: inline-block;
 		}
 
-		& > img
+		&__image
 		{
-			background-color: $main-light;
+			//background-color: $main-color;
 		    object-fit: cover;
 		    overflow: hidden;
 		    width: 100%;
 		    height: $carousel-height;
 		    display: block;
-		    opacity: 0.9;
+		    //opacity: 0.7;
 		}
 
 		&__info
 		{
 			position: absolute;
-			left: 5em;
-			bottom: 3em;
+			left: 6em;
+			bottom: 6em;
 			text-shadow: 0px 2px 2px rgba(0, 0, 0, 0.8);
             width: 60%;
             display: none;
@@ -72,7 +72,7 @@
 		&:hover
 		{
 			cursor: pointer;
-			color: $secondary-color;
+			color: $main-color;
 		}
 		
 		&--previous
@@ -83,6 +83,51 @@
 		&--next
 		{
 			right: 15px;
+		}
+	}
+
+	&__navigator
+	{
+		width: 100%;
+		position: absolute;
+		bottom: 2em;
+
+		& > ul
+		{
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			list-style: none;
+		}
+
+		&__dot
+		{
+			height: 1.3em;
+			width: 1.3em;
+			border-radius: 50%;
+			border: 0.2em solid $main-light; 
+			display: inline-block;
+			box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.6);
+			transition: border-color 0.3s;
+			margin-left: 0.5em;
+			margin-right: 0.5em;
+
+			&:hover
+			{
+				border-color: $main-color;
+				cursor: pointer;
+			}
+
+			&--current
+			{
+				background-color: $main-light;
+				transition: border-color 0.3s, background-color 0.3s;
+
+				&:hover
+				{
+					background-color: $main-color;
+				}
+			}
 		}
 	}
 }

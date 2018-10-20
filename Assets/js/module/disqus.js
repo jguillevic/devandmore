@@ -1,10 +1,8 @@
 var disqus_config = function () 
 {
     this.page.url = window.location.href;
-    console.log(this.page.url);
     var urlParams = new URLSearchParams(window.location.search);
-    let slug = urlParams.get("slug");
-    console.log(slug);
+    var slug = urlParams.get("slug");
     this.page.identifier = slug;
 };
 

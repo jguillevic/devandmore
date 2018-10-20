@@ -28,7 +28,7 @@
 
 		&:hover
 		{
-			color: $secondary-color;
+			color: $main-color;
 		}
 	}
 	
@@ -43,7 +43,7 @@
 		&:hover
 		{
 			cursor: pointer;
-			color: $secondary-color;
+			color: $main-color;
 		}
 	}
 
@@ -94,7 +94,7 @@
 
 						&:hover
 						{
-							color: $secondary-color;
+							color: $main-color;
 						}
 					}
 
@@ -114,7 +114,7 @@
 
 								&:hover
 								{
-									color: $secondary-color;
+									color: $main-color;
 								}
 							}	
 						}
@@ -134,7 +134,7 @@
 
     		&:hover
     		{
-    			color: $secondary-color;
+    			color: $main-color;
     			cursor: pointer;
     		}
     	}
