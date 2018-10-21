@@ -7,7 +7,7 @@ use \Tools\Helper\UserHelper;
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>dev&m||e</title>
+	<title>d3v&m||3</title>
 	<link rel="stylesheet" type="text/css" href="../Assets/css/style.css"> 	
 	<script type="text/javascript" src="../Assets/js/jquery/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="../Assets/js/jquery/jquery-migrate-1.4.1.min.js"></script>
@@ -18,7 +18,7 @@ use \Tools\Helper\UserHelper;
 <body>
 	<header class="l-header header">
 		<nav class="nav">
-			<a class="nav__logo" href="<?= RoutesHelper::Path("DisplayHome"); ?>">dev&m||e</a>
+			<a class="nav__logo" href="<?= RoutesHelper::Path("DisplayHome"); ?>">d3v&m||3</a>
 			<span class="nav__burger">
 				<i class="fas fa-bars"></i>
 			</span>
@@ -26,22 +26,28 @@ use \Tools\Helper\UserHelper;
 		<section id="nav__overlay" class="nav__overlay">
 			<section class="nav__overlay__content">
 				<ul>
-					<li><a href="<?= RoutesHelper::Path("DisplayHome"); ?>">Accueil</a></li>
+					<li><a class="nav__overlay__menu-item-home" href="<?= RoutesHelper::Path("DisplayHome"); ?>">Accueil</a></li><!--
 					<?php 
 					if (UserHelper::IsLogin())
 					{
 					?>
-					<li>Administration<!--
-						--><ul>
-							<li><a href="<?= RoutesHelper::Path("ManageImage"); ?>">Images</a></li><!--
-							--><li><a href="<?= RoutesHelper::Path("ManageCategory"); ?>">Catégories</a></li><!--
-							--><li><a href="<?= RoutesHelper::Path("ManagePost"); ?>">Articles</a></li>
+					--><li><span class="nav__overlay__menu-item-drop nav__overlay__menu-item-drop--down nav__overlay__menu-item-admin">Administration</span><!--
+						--><ul class="nav__overlay__menu-subitem-content">
+							<li><a class="nav__overlay__menu-item" href="<?= RoutesHelper::Path("ManageImage"); ?>">Images</a></li><!--
+							--><li><a class="nav__overlay__menu-item" href="<?= RoutesHelper::Path("ManageCategory"); ?>">Catégories</a></li><!--
+							--><li><a class="nav__overlay__menu-item" href="<?= RoutesHelper::Path("ManagePost"); ?>">Articles</a></li>
 						</ul>
 					</li><!--
 					--><?php } ?><!--
-					--><li>Catégories</li><!--
-					--><li><a href="<?= RoutesHelper::Path("DisplayContact"); ?>">Contact</a></li><!--
-					--><li><a href="<?= RoutesHelper::Path("DisplayAbout"); ?>">A propos</a></li>
+					--><li><span class="nav__overlay__menu-item-drop nav__overlay__menu-item-drop--down nav__overlay__menu-item-category">Catégories</span>
+						<ul class="nav__overlay__menu-subitem-content">
+							<li><a class="nav__overlay__menu-item" href="">Catégorie 1</a></li><!--
+							--><li><a class="nav__overlay__menu-item" href="">Catégorie 2</a></li><!--
+							--><li><a class="nav__overlay__menu-item" href="">Catégorie 3</a></li>
+						</ul>
+					</li><!--
+					--><li><a class="nav__overlay__menu-item-contact" href="<?= RoutesHelper::Path("DisplayContact"); ?>">Contact</a></li><!--
+					--><li><a class="nav__overlay__menu-item-about" href="<?= RoutesHelper::Path("DisplayAbout"); ?>">A propos</a></li>
 				</ul>
 			</section>
 			<div class="nav__overlay__close">

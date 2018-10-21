@@ -581,20 +581,19 @@ option:not(:checked) {
       cursor: pointer;
       color: #1976D2; }
   .nav__overlay {
-    height: 0;
+    height: 100%;
     width: 0;
     position: fixed;
     visibility: hidden;
     z-index: 2;
     right: 0;
     top: 0;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: black;
     overflow-x: hidden;
     -webkit-transition: width 0.3s, height 0.3s;
     transition: width 0.3s, height 0.3s; }
     .nav__overlay--open {
-      width: 100%;
-      height: 100%;
+      width: 20%;
       visibility: visible; }
     .nav__overlay__content {
       width: 100%;
@@ -602,38 +601,70 @@ option:not(:checked) {
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
-      -webkit-box-orient: horizontal;
+      -webkit-box-orient: vertical;
       -webkit-box-direction: normal;
-          -ms-flex-direction: row;
-              flex-direction: row;
-      -webkit-box-pack: center;
-          -ms-flex-pack: center;
-              justify-content: center;
-      font-family: "Roboto";
-      font-size: 2.5em; }
+          -ms-flex-direction: column;
+              flex-direction: column;
+      font-family: "Open Sans";
+      font-size: 1.5em; }
       .nav__overlay__content > ul {
-        margin-top: 150px; }
+        margin-top: 5em;
+        padding-left: 1em;
+        width: 100%; }
         .nav__overlay__content > ul > li {
-          vertical-align: text-top;
           display: inline-block;
-          margin-left: 20px;
-          margin-right: 20px; }
-          .nav__overlay__content > ul > li > a {
-            -webkit-transition: color 0.3s;
-            transition: color 0.3s; }
-            .nav__overlay__content > ul > li > a:hover {
-              color: #1976D2; }
+          width: 100%;
+          font-weight: 700; }
           .nav__overlay__content > ul > li > ul {
-            margin-left: 25px;
-            margin-top: 5px; }
+            width: 100%;
+            padding-left: 1.2em; }
             .nav__overlay__content > ul > li > ul > li {
               color: #909090;
-              font-size: 0.7em; }
-              .nav__overlay__content > ul > li > ul > li > a {
-                -webkit-transition: color 0.3s;
-                transition: color 0.3s; }
-                .nav__overlay__content > ul > li > ul > li > a:hover {
-                  color: #1976D2; }
+              font-size: 0.8em; }
+    .nav__overlay__menu-item, .nav__overlay__menu-item-drop, .nav__overlay__menu-item-before, .nav__overlay__menu-item-home, .nav__overlay__menu-item-admin, .nav__overlay__menu-item-category, .nav__overlay__menu-item-about, .nav__overlay__menu-item-contact {
+      -webkit-transition: color 0.3s;
+      transition: color 0.3s; }
+      .nav__overlay__menu-item:hover, .nav__overlay__menu-item-drop:hover, .nav__overlay__menu-item-before:hover, .nav__overlay__menu-item-home:hover, .nav__overlay__menu-item-admin:hover, .nav__overlay__menu-item-category:hover, .nav__overlay__menu-item-about:hover, .nav__overlay__menu-item-contact:hover {
+        color: #1976D2;
+        cursor: pointer; }
+    .nav__overlay__menu-item-drop::after {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 700;
+      margin-left: 0.3em;
+      color: #FFFFFF;
+      -webkit-transition: color 0.3s;
+      transition: color 0.3s; }
+    .nav__overlay__menu-item-drop:hover::after {
+      color: #1976D2;
+      cursor: pointer; }
+    .nav__overlay__menu-item-drop--down::after {
+      content: "\f107"; }
+    .nav__overlay__menu-item-drop--up::after {
+      content: "\f106"; }
+    .nav__overlay__menu-item-before::before, .nav__overlay__menu-item-home::before, .nav__overlay__menu-item-admin::before, .nav__overlay__menu-item-category::before, .nav__overlay__menu-item-about::before, .nav__overlay__menu-item-contact::before {
+      font-family: "Font Awesome 5 Free";
+      font-weight: 700;
+      color: #FFFFFF;
+      -webkit-transition: color 0.3s;
+      transition: color 0.3s;
+      display: inline-block;
+      width: 1.8em; }
+    .nav__overlay__menu-item-before:hover::before, .nav__overlay__menu-item-home:hover::before, .nav__overlay__menu-item-admin:hover::before, .nav__overlay__menu-item-category:hover::before, .nav__overlay__menu-item-about:hover::before, .nav__overlay__menu-item-contact:hover::before {
+      color: #1976D2;
+      cursor: pointer; }
+    .nav__overlay__menu-item-home::before {
+      content: "\f015"; }
+    .nav__overlay__menu-item-admin::before {
+      content: "\f508"; }
+    .nav__overlay__menu-item-category::before {
+      content: "\f121"; }
+    .nav__overlay__menu-item-about::before {
+      content: "\f05a"; }
+    .nav__overlay__menu-item-contact::before {
+      content: "\f1fa"; }
+    .nav__overlay__menu-subitem-content {
+      height: 100%;
+      visibility: visible; }
     .nav__overlay__close {
       position: fixed;
       right: 28px;
@@ -1218,4 +1249,5 @@ option:not(:checked) {
     text-align: right; }
 
 /* Theme */
+
 /*# sourceMappingURL=style.css.map */
