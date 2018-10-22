@@ -39,7 +39,7 @@
 		position: relative;
 		width: 30%;
 		padding-left: 1.5em;
-		padding-right: 1.5em;
+		padding-right: 0.5em;
 
 		&__title
 		{
@@ -67,22 +67,21 @@
 		&__footer
 		{
 			position: absolute;
-  			bottom: 5%;
 			display: flex;
 			flex-direction: row;
 			justify-content: space-between;
-			width: 100%;
+			width: 90%;
+			bottom: 0.5em;
 
 			&__category
 			{
-				text-align: left;
 				background-color: transparent;
 				color: $main-gray;
 				font-family: $title-font;
 				text-transform: uppercase;
 				font-weight: 700;
 				transition: color 0.3s;
-				display: inline-block;
+				display: block;
 
 				&:hover
 				{
@@ -92,8 +91,7 @@
 
 			&__comment-count
 			{
-				display: inline-block;
-				text-align: right;
+				display: block;
 			}
 		}
 	}
@@ -161,7 +159,7 @@
 
 		&__footer
 		{
-			width: 100%;
+			width: 92%;
 			position: absolute;
   			bottom: 8%;
 			display: flex;
@@ -177,7 +175,7 @@
 				text-transform: uppercase;
 				font-weight: 700;
 				transition: color 0.3s;
-				display: inline-block;
+				display: block;
 
 				&:hover
 				{
@@ -187,8 +185,7 @@
 
 			&__comment-count
 			{
-				display: inline-block;
-				text-align: right;
+				display: block;
 			}
 		}
 	}

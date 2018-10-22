@@ -728,7 +728,7 @@ option:not(:checked) {
     position: relative;
     width: 30%;
     padding-left: 1.5em;
-    padding-right: 1.5em; }
+    padding-right: 0.5em; }
     .thumbnail-post__info__title {
       display: block;
       font-family: "Open Sans";
@@ -746,7 +746,6 @@ option:not(:checked) {
       font-size: 0.95em; }
     .thumbnail-post__info__footer {
       position: absolute;
-      bottom: 5%;
       display: -webkit-box;
       display: -ms-flexbox;
       display: flex;
@@ -757,9 +756,9 @@ option:not(:checked) {
       -webkit-box-pack: justify;
           -ms-flex-pack: justify;
               justify-content: space-between;
-      width: 100%; }
+      width: 90%;
+      bottom: 0.5em; }
       .thumbnail-post__info__footer__category {
-        text-align: left;
         background-color: transparent;
         color: #909090;
         font-family: "Open Sans";
@@ -767,12 +766,11 @@ option:not(:checked) {
         font-weight: 700;
         -webkit-transition: color 0.3s;
         transition: color 0.3s;
-        display: inline-block; }
+        display: block; }
         .thumbnail-post__info__footer__category:hover {
           color: #1976D2; }
       .thumbnail-post__info__footer__comment-count {
-        display: inline-block;
-        text-align: right; }
+        display: block; }
 
 .thumbnail-small-post {
   width: 23%;
@@ -827,7 +825,7 @@ option:not(:checked) {
       .thumbnail-small-post__info__title:hover {
         color: #1976D2; }
     .thumbnail-small-post__info__footer {
-      width: 100%;
+      width: 92%;
       position: absolute;
       bottom: 8%;
       display: -webkit-box;
@@ -849,12 +847,11 @@ option:not(:checked) {
         font-weight: 700;
         -webkit-transition: color 0.3s;
         transition: color 0.3s;
-        display: inline-block; }
+        display: block; }
         .thumbnail-small-post__info__footer__category:hover {
           color: #1976D2; }
       .thumbnail-small-post__info__footer__comment-count {
-        display: inline-block;
-        text-align: right; }
+        display: block; }
 
 .form {
   margin-left: auto;
