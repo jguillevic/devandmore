@@ -4,6 +4,8 @@ namespace DAL;
 
 use \Framework\DAL\Database;
 use \Framework\DAL\DALHelper;
+use \DAL\CategoryDAL;
+use \DAL\ImageDAL;
 use \Model\Post;
 use \Model\Category;
 use \Model\Image;
@@ -110,22 +112,15 @@ class PostDAL
 
 		foreach ($rows as $row) 
 		{
-			$post = self::ReadPost($row);
+			$post = self::ReadPost($row, $categoryId, $imageId);
 
-			$category = new Category();
-			$category->SetId($row['C_Id']);
-			$category->SetName($row['C_Name']);
-			$category->SetColor($row['C_Color']);
-			$category->SetIsVisible($row['C_IsVisible']);
-			$post->SetCategory($category);
+			$categoryDAL = new CategoryDAL($this->db);
+			$categories = $categoryDAL->Load([ "ids" => [ $categoryId ] ]);
+			$post->SetCategory($categories[$categoryId]);
 
-			$image = new Image();
-			$image->SetId($row["I_Id"]);
-			$image->SetName($row["I_Name"]);
-			$image->SetPath($row["I_Path"]);
-			$image->SetExtension($row["I_Extension"]);
-			$image->SetIsVisible($row["I_IsVisible"]);
-			$post->SetImage($image);
+			$imageDAL = new ImageDAL($this->db);
+			$images = $imageDAL->Load([ "ids" => [ $imageId ] ];) 
+			$post->SetImage($images[$imageId]);
 
 			$posts[$post->GetId()] = $post;
 		}
@@ -140,10 +135,17 @@ class PostDAL
 	 */
 	private static function BuildLoadQuery($filter)
 	{
-		$query = "SELECT P.Id AS P_Id, P.Title AS P_Title, P.Slug AS P_Slug, P.Description AS P_Description, P.Content AS P_Content, P.CreationDate AS P_CreationDate, P.LastUpdateDate AS P_LastUpdateDate, P.IsPublished AS P_IsPublished, C.Id AS C_Id, C.Name AS C_Name, C.Color AS C_Color, C.IsVisible AS C_IsVisible, I.Id AS I_Id, I.Name AS I_Name, I.Path AS I_Path, I.Extension AS I_Extension, I.IsVisible AS I_IsVisible
-			FROM Post AS P
-			INNER JOIN Category AS C ON P.CategoryId = C.Id
-			INNER JOIN Image AS I ON P.ImageId = I.Id ";
+		$query = "SELECT P.Id AS P_Id
+		, P.Title AS P_Title
+		, P.Slug AS P_Slug
+		, P.Description AS P_Description
+		, P.Content AS P_Content
+		, P.CreationDate AS P_CreationDate
+		, P.LastUpdateDate AS P_LastUpdateDate
+		, P.IsPublished AS P_IsPublished
+		, P.CategoryId AS P_CategoryId
+		, P.ImageId AS P_ImageId
+		FROM Post AS P ";
 		
 		$params = null;
 
@@ -182,7 +184,7 @@ class PostDAL
 	 * @param array $row data from the row
 	 * @return Post post with read data
 	 */
-	private static function ReadPost($row)
+	private static function ReadPost($row, &$categoryId, &$imageId)
 	{
 		$post = new Post();
 
@@ -194,6 +196,8 @@ class PostDAL
 		$post->SetCreationDate($row['P_CreationDate']);
 		$post->SetLastUpdateDate($row['P_LastUpdateDate']);
 		$post->SetIsPublished($row['P_IsPublished']);
+		$categoryId = $row["P_CategoryId"];
+		$imageId = $row["P_ImageId"];
 
 		return $post;
 	}
