@@ -3,15 +3,19 @@
 namespace DAL;
 
 use \Framework\DAL\Database;
+use \Framework\DAL\DALHelper;
 use \Model\Category;
 
 class CategoryDAL
 {
 	private $db;
 
-	public function __construct()
+	public function __construct($db = null)
 	{
-		$this->db = new Database();
+		if (isset($db))
+			$this->db = $db;
+		else
+			$this->db = new Database();
 	}
 
 	public function Add($categories)
@@ -54,8 +58,8 @@ class CategoryDAL
 
 	public function Load($filter = null)
 	{
-		$query = "SELECT Id, Name, HEX(Color) AS Color, IsVisible
-			FROM Category ";
+		$query = "SELECT C.Id, C.Name, HEX(C.Color) AS Color, C.IsVisible
+			FROM Category AS C";
 
 		$params = null;
 
@@ -64,26 +68,13 @@ class CategoryDAL
 			$params = array();
 
 			$query .= "WHERE ";
+			$firstCond = true;
 
 			if (array_key_exists("ids", $filter))
 			{
 				$ids = $filter["ids"];
-
-				$query .= "Id IN (";
-
-				for ($i=0; $i < count($ids); $i++) 
-				{ 
-					if ($i > 0)
-					{
-						$query .= ", ";
-					}
-					
-					$query .= ":Id".$i;
-				
-					$params["Id".$i] = $ids[$i];
-				}
-
-				$query .= ")";
+				$query .= DALHelper::SetArrayParams($ids, "C", "Id", $params)
+				$firstCond = false;
 			}
 		}
 

@@ -3,15 +3,19 @@
 namespace DAL;
 
 use \Framework\DAL\Database;
+use \Framework\DAL\DALHelper;
 use \Model\Image;
 
 class ImageDAL
 {
 	private $db;
 
-	public function __construct()
+	public function __construct($db = null)
 	{
-		$this->db = new Database();
+		if (isset($db))
+			$this->db = $db;
+		else
+			$this->db = new Database();
 	}
 
 	public function Add($images)
@@ -82,8 +86,8 @@ class ImageDAL
 
 	public function Load($filter = null)
 	{
-		$query = "SELECT Id, Name, Path, Extension, IsVisible
-				FROM Image ";
+		$query = "SELECT I.Id, I.Name, I.Path, I.Extension, I.IsVisible
+				FROM Image AS I ";
 
 		$params = null;
 
@@ -92,26 +96,13 @@ class ImageDAL
 			$params = array();
 
 			$query .= "WHERE ";
+			$firstCond = true;
 
 			if (array_key_exists("ids", $filter))
 			{
 				$ids = $filter["ids"];
-
-				$query .= "Id IN (";
-
-				for ($i=0; $i < count($ids); $i++) 
-				{ 
-					if ($i > 0)
-					{
-						$query .= ", ";
-					}
-					
-					$query .= ":Id".$i;
-				
-					$params["Id".$i] = $ids[$i];
-				}
-
-				$query .= ")";
+				$query .= DALHelper::SetArrayParams($ids, "I", "Id", $params)
+				$firstCond = false;
 			}
 		}
 

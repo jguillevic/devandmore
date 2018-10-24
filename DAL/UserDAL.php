@@ -9,9 +9,12 @@ class UserDAL
 {
 	private $db;
 
-	public function __construct()
+	public function __construct($db = null)
 	{
-		$this->db = new Database();
+		if (isset($db))
+			$this->db = $db;
+		else
+			$this->db = new Database();
 	}
 
 	public function Exists($user)
