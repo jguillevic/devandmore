@@ -10,6 +10,8 @@ $posts = $params["posts"];
 <section class="carousel">
 	<ul>
 <?php
+// Nombre d'articles affichés dans le carousel.
+$carouselPostCount = 5;
 foreach ($posts as $post) 
 {
 ?>
@@ -25,6 +27,9 @@ foreach ($posts as $post)
 			</a>
     	</li>
 <?php
+	$carouselPostCount--;
+	if ($carouselPostCount <= 0)
+		break;
 }
 ?>
 	</ul>

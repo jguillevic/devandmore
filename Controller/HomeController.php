@@ -12,7 +12,7 @@ class HomeController
 	public function Display($queryParameters)
 	{
 		$postBLL = new PostBLL();
-		$posts = $postBLL->LoadAll();
+		$posts = $postBLL->LoadAllByCreationDateDesc();
 		
 		$path = PathHelper::GetPath([ "Home", "DisplayHome" ]);
 		$view = new View($path);

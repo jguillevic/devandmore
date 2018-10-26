@@ -1,0 +1,51 @@
+<?php
+if(isset($params) && array_key_exists("user", $params))
+    $user = $params["user"];
+else
+    $user = null;
+?>
+
+<form class="form" id="user-login-form" action="<?= RoutesHelper::Path("LoginUser"); ?>" method="POST">
+	<h1>Connexion</h1>
+		
+<?php
+if (isset($params) && array_key_exists("errors", $params))
+{
+?>
+		<section class="form__errors">
+			<ul>
+<?php
+	foreach ($params["errors"] as $error) 
+	{
+?>
+				<li><?php echo $error->GetMessage(); ?></li>
+<?php
+	}
+?>
+			</ul>
+		</section>
+<?php
+}
+?>
+	<section class="form__content">
+		<section class="form__validation-container">
+			<section class="form__input-container">
+				<div class="form__input-container__icon"><i class="fas fa-user"></i></div>
+				<input class="form__input-container__input" id="user-username" name="user-username" type="text" placeholder="Identifiant" value="<?php if(isset($user)) { echo $user->GetUsername(); } ?>"/>
+			</section>
+		</section>
+		<section class="form__validation-container">
+			<section class="form__input-container">
+				<div class="form__input-container__icon"><i class="fas fa-key"></i></div>
+				<input class="form__input-container__input" id="user-password" name="user-password" type="password" placeholder="Mot de passe" value="<?php if(isset($user)) { echo $user->GetPassword(); } ?>"/>
+			</section>
+		</section>
+	</section>
+	<section class="form__buttons">
+		<ul>
+			<li>
+				<button id="submit-button" class="button--submit" type="submit">Se connecter</button>
+			</li>
+		</ul>
+	</section>
+</form>

@@ -1,18 +1,18 @@
 PostDAL.php :
-- [] Gérer le paramètre IsPublished
-- [] Permettre le tri par CreationDate
+- [X] Gérer le paramètre IsPublished
+- [X] Permettre le tri par CreationDate
 
 CategoryDAL.php :
-- [] Gérer le paramètre IsVisible
+- [X] Gérer le paramètre IsVisible
 
 ImageDAL.php :
-- [] Gérer le paramètre IsVisible
+- [X] Gérer le paramètre IsVisible
 
 HomeController.php :
-- [] Dans la méthode Display, ne charger que les Post qui ont été publiés dans l'ordre CreationDate décroissant
+- [X] Dans la méthode Display, ne charger que les Post qui ont été publiés dans l'ordre CreationDate décroissant
 
 DisplayHome.phtml :
-- [] Dans le carousel, n'afficher que les 5 derniers Post par ordre de CreationDate décroissant
+- [X] Dans le carousel, n'afficher que les 5 derniers Post par ordre de CreationDate décroissant
 
 JavaScript :
 - [] Réorganiser les fichiers .js
@@ -22,11 +22,11 @@ Carousel :
 - [] Faire un article dessus
 
 LoginUser.phtml :
-- [] Sortir la form dans LoginForm.phtml
+- [X] Sortir la form dans LoginForm.phtml
 
 LoginForm.phtml :
 - [] Gérer le hashage de Password lors du submit
-Le mot de passe ne doit pas trnasité en clair via dans une requête
+Le mot de passe ne doit pas transiter en clair via dans une requête
 
 UserController.php :
 - [] Dans la méthode Login, gérer le hashage du mot de passe avec un salt

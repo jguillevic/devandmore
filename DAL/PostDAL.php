@@ -102,9 +102,10 @@ class PostDAL
 		$this->db->Execute($query, $params);
 	}
 
-	public function Load($filter = null)
+	public function Load($filter = null, $orderBy = null)
 	{
-		$query = self::BuildLoadQuery();
+
+		$query = self::BuildLoadQuery($filter, $orderBy, $params);
 
 		$rows = $this->db->Read($query, $params);
 
@@ -131,9 +132,11 @@ class PostDAL
 	/**
 	 * Build query for load
 	 * @param array $filter
+	 * @param array $orderBy
+	 * @param array $params
 	 * @return string query
 	 */
-	private static function BuildLoadQuery($filter)
+	private static function BuildLoadQuery($filter, $orderBy, &$params)
 	{
 		$query = "SELECT P.Id AS P_Id
 		, P.Title AS P_Title
@@ -159,7 +162,7 @@ class PostDAL
 			if (array_key_exists("ids", $filter))
 			{
 				$ids = $filter["ids"];
-				$query .= DALHelper::SetArrayParams($ids, "P", "Id", $params)
+				$query .= DALHelper::SetArrayParams($ids, "P", "Id", $params);
 				$firstCond = false;
 			}
 
@@ -169,8 +172,30 @@ class PostDAL
 					$query .= " AND ";
 
 				$slugs = $filter["slugs"];
-				$query .= DALHelper::SetArrayParams($slugs, "P", "Slug", $params)
+				$query .= DALHelper::SetArrayParams($slugs, "P", "Slug", $params);
 				$firstCond = false;
+			}
+
+			if (array_key_exists("isPublished", $filter))
+			{
+				if ($firstCond)
+					$query .= " AND ";
+
+				$isPublished = $filter["isPublished"];
+				$query .= DALHelper::SetArrayParams($isPublished, "P", "IsPublished", $params);
+				$firstCond = false;
+			}
+		}
+
+		if (isset($orderBy))
+		{
+			$query .= "ORDER BY ";
+			$firstOrderBy = true;
+
+			if (array_key_exists("creationDate", $orderBy))
+			{
+				$sort = $orderBy["creationDate"];
+				$query .= sprintf(" P.CreationDate %s ", $sort);
 			}
 		}
 

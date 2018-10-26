@@ -73,7 +73,17 @@ class CategoryDAL
 			if (array_key_exists("ids", $filter))
 			{
 				$ids = $filter["ids"];
-				$query .= DALHelper::SetArrayParams($ids, "C", "Id", $params)
+				$query .= DALHelper::SetArrayParams($ids, "C", "Id", $params);
+				$firstCond = false;
+			}
+
+			if (array_key_exists("isVisible", $filter))
+			{
+				if ($firstCond)
+					$query .= " AND ";
+
+				$isVisible = $filter["isVisible"];
+				$query .= DALHelper::SetArrayParams($isVisible, "C", "IsVisible", $params);
 				$firstCond = false;
 			}
 		}
